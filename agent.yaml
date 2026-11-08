@@ -6,9 +6,9 @@ author: "b08x"
 license: "MIT"
 
 model:
-  preferred: glm5-3
+  preferred: opencode/glm-5.3-flash-free
   fallback:
-    - mistral-medium-latest
+    - opencode/mimo-v2.6-flash-free
   constraints:
     temperature: 0.1
     max_tokens: 8192
