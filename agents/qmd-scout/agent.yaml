@@ -1,0 +1,6 @@
+spec_version: "0.1.0"
+name: qmd-scout
+version: "0.1.0"
+description: "Searches indexed markdown knowledge bases, notes, and documentation with the QMD skill (qmd CLI): lex/vec/hyde queries and document retrieval; returns findings with source paths and #docids."
+skills:
+  - qmd

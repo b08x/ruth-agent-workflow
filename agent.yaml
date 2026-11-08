@@ -1,9 +1,10 @@
 spec_version: "0.1.0"
-name: my-agent
-version: 0.1.0
-description: A production-ready agent with full compliance configuration
-author: ""
-license: GNU Public
+name: ruth
+version: "0.1.0"
+description: "Documentation-crafting agent in the R.U.T.H persona voice (Records Uncertainty, Traces History): writes and revises READMEs, API references, changelogs, postmortems, and architecture notes with terminology accountability, bounded uncertainty labels, and confessed euphemisms. Delegates fact-gathering to codebase, web, and knowledge-graph scout subagents; orchestrates the SFL documentation debate itself by spawning the SFL drafter, three metafunction judges, and editor leaf subagents (validation-gated create and edit); proposes edits as suggestions before applying them in collaborative doc edit sessions; and routes every draft and batched proposal set through mandatory human-in-the-loop Plannotator review gates (plannotator annotate --gate --require-approval) before anything is finalized or applied."
+author: "b08x"
+license: "MIT"
+
 model:
   preferred: glm5-3
   fallback:
@@ -11,13 +12,67 @@ model:
   constraints:
     temperature: 0.1
     max_tokens: 8192
-skills: []
-tools: []
+
+skills:
+  - doc-style
+  - update-docs
+  - ruth-voice
+  - qmd
+  - sfl-technical-writing
+  - sift-graph
+
+tools:
+  - plannotator
+
 delegation:
-  mode: auto
+  mode: explicit
+
+agents:
+  codebase-scout:
+    description: "Reads source code, configs, and notes to extract the facts a document must cover; returns findings with file paths and line references."
+    delegation:
+      mode: explicit
+  qmd-scout:
+    description: "Searches indexed markdown knowledge bases, notes, and documentation with the QMD skill (qmd CLI): lex/vec/hyde queries and document retrieval; returns findings with source paths and #docids."
+    delegation:
+      mode: explicit
+  sfl-docs-drafter:
+    description: "Drafts new technical documentation from SFL genre templates after register setup (Field/Tenor/Mode), grounding participants and circumstances in source material and Notebook corpus queries, then submits the draft for metafunction debate."
+    delegation:
+      mode: explicit
+  sfl-docs-editor:
+    description: "Applies the debate's consensus fixes to documentation using SFL editing operations: unpacking nominalizations, modality repair, theme-rheme repair, and cohesion repair, keeping the diff minimal and reviewable."
+    delegation:
+      mode: explicit
+  sfl-docs-ideational-judge:
+    description: "Ideational metafunction judge for the SFL docs debate: audits documentation drafts for process-type coverage (material/mental/relational), explicit participants, and circumstantial boundaries, citing the process-type validation checkers."
+    delegation:
+      mode: explicit
+  sfl-docs-interpersonal-judge:
+    description: "Interpersonal metafunction judge for the SFL docs debate: audits modality calibration against evidence quality, tenor and audience fit, and honest negative capability (what the system does not do)."
+    delegation:
+      mode: explicit
+  sfl-docs-textual-judge:
+    description: "Textual metafunction judge for the SFL docs debate: audits theme-rheme progression (concrete to conditional), cohesion of causal/temporal connectives, and genre staging per the SFL templates."
+    delegation:
+      mode: explicit
+  sfl-docs-workflow:
+    description: "Multi-agent workflow that creates and edits technical documentation through SFL metafunction debate. The coordinator sets the register, the Drafter (with ruth-qmd-scout for Notebook corpus queries) drafts from SFL genre templates, the Ideational, Interpersonal, and Textual metafunction judges independently audit and debate the draft, and the Editor applies consensus fixes via SFL editing operations (unpacking nominalizations, modality calibration, theme-rheme repair)."
+    delegation:
+      mode: explicit
+
 runtime:
-  max_turns: 50
-  timeout: 300
+  max_turns: 100
+  timeout: 600
+
+# Shell CLI dependencies:
+# - qmd: quick markdown search CLI
+# - plannotator: human-in-the-loop review gate CLI
+mcp_servers:
+  codebase-memory-mcp:
+    command: "${CODEBASE_MEMORY_MCP_CMD}"
+    args: []
+
 compliance:
   risk_tier: standard
   frameworks: []
@@ -41,32 +96,67 @@ compliance:
       - model_version
       - timestamps
     immutable: true
-  model_risk:
-    inventory_id: null
-    validation_cadence: annual
-    validation_type: full
-    conceptual_soundness: null
-    ongoing_monitoring: true
-    outcomes_analysis: true
-    drift_detection: true
-    parallel_testing: false
-  data_governance:
-    pii_handling: redact
-    data_classification: confidential
-    consent_required: true
-    cross_border: false
-    bias_testing: true
-    lda_search: false
-  communications:
-    type: correspondence
-    pre_review_required: false
-    fair_balanced: true
-    no_misleading: true
-    disclosures_required: false
-  vendor_management:
-    due_diligence_complete: false
-    soc_report_required: false
-    vendor_ai_notification: true
-    subcontractor_assessment: false
-tags: []
-metadata: {}
+  segregation_of_duties:
+    roles:
+      - id: orchestrator
+        description: Coordinates workflows, registers, and dispatches sub-agents
+        permissions:
+          - create
+          - submit
+          - execute
+          - report
+      - id: maker
+        description: Drafts document proposals and initial text from genre templates
+        permissions:
+          - create
+          - submit
+      - id: checker
+        description: Audits drafts independently across ideational, interpersonal, and textual lenses
+        permissions:
+          - review
+          - audit
+          - report
+      - id: executor
+        description: Applies deduplicated consensus diffs to target documents
+        permissions:
+          - execute
+      - id: evidence_gatherer
+        description: Read-only codebase and knowledge base inspection
+        permissions:
+          - review
+          - audit
+    conflicts:
+      - ["maker", "checker"]
+      - ["maker", "executor"]
+      - ["checker", "executor"]
+    assignments:
+      sfl-docs-workflow:
+        - orchestrator
+      sfl-docs-drafter:
+        - maker
+      sfl-docs-ideational-judge:
+        - checker
+      sfl-docs-interpersonal-judge:
+        - checker
+      sfl-docs-textual-judge:
+        - checker
+      sfl-docs-editor:
+        - executor
+      codebase-scout:
+        - evidence_gatherer
+      qmd-scout:
+        - evidence_gatherer
+    isolation:
+      state: full
+      credentials: separate
+    handoffs:
+      - action: document_finalize
+        required_roles:
+          - maker
+          - checker
+        approval_required: true
+    enforcement: strict
+
+metadata:
+  shell_dependencies: "qmd,plannotator"
+  architecture: "sfl-orchestration"

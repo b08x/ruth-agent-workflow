@@ -5,6 +5,12 @@ hooks:
       timeout: 10
       compliance: false
       fail_open: true
+  pre_tool_use:
+    - script: scripts/check-allowlist.sh
+      description: Enforce shell and tool allowlists for ruth, codebase-scout, and qmd-scout
+      timeout: 5
+      compliance: true
+      fail_open: false
   on_error:
     - script: scripts/on-error.sh
       description: Handle errors and escalate if needed

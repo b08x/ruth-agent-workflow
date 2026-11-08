@@ -1,0 +1,132 @@
+{
+  "project": "home-b08x-WorkspaceV3-sfl-compiler",
+  "query": "PassTwoEngine",
+  "claims": [
+    {
+      "claim_id": "f2d12d76",
+      "text": "initialize in lib/sfl/compiler/pass_two/pass_two_engine.rb initializes the PassTwoEngine with configuration from Types.dump",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-sfl-compiler",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-sfl-compiler.lib.sfl.compiler.pass_two.pass_two_engine.SFL.Compiler.PassTwoEngine.initialize",
+        "file_path": "lib/sfl/compiler/pass_two/pass_two_engine.rb",
+        "start_line": 20,
+        "end_line": 24,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "0b1d1afb",
+      "text": "annotate in lib/sfl/compiler/pass_two/pass_two_engine.rb performs interpersonal SFL annotation with circuit breaker retries",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-sfl-compiler",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-sfl-compiler.lib.sfl.compiler.pass_two.pass_two_engine.SFL.Compiler.PassTwoEngine.annotate",
+        "file_path": "lib/sfl/compiler/pass_two/pass_two_engine.rb",
+        "start_line": 31,
+        "end_line": 82,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "fabc18c8",
+      "text": "annotate_interpersonal in lib/sfl/compiler/pass_two/pass_two_engine.rb performs interpersonal SFL annotation with circuit breaker retries",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-sfl-compiler",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-sfl-compiler.lib.sfl.compiler.pass_two.pass_two_engine.SFL.Compiler.PassTwoEngine.annotate_interpersonal",
+        "file_path": "lib/sfl/compiler/pass_two/pass_two_engine.rb",
+        "start_line": 95,
+        "end_line": 122,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    }
+  ],
+  "critique_claims": [],
+  "sections": {
+    "Verified Facts": [
+      {
+        "claim_id": "f2d12d76",
+        "text": "initialize in lib/sfl/compiler/pass_two/pass_two_engine.rb initializes the PassTwoEngine with configuration from Types.dump",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-sfl-compiler",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-sfl-compiler.lib.sfl.compiler.pass_two.pass_two_engine.SFL.Compiler.PassTwoEngine.initialize",
+          "file_path": "lib/sfl/compiler/pass_two/pass_two_engine.rb",
+          "start_line": 20,
+          "end_line": 24,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "0b1d1afb",
+        "text": "annotate in lib/sfl/compiler/pass_two/pass_two_engine.rb performs interpersonal SFL annotation with circuit breaker retries",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-sfl-compiler",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-sfl-compiler.lib.sfl.compiler.pass_two.pass_two_engine.SFL.Compiler.PassTwoEngine.annotate",
+          "file_path": "lib/sfl/compiler/pass_two/pass_two_engine.rb",
+          "start_line": 31,
+          "end_line": 82,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "fabc18c8",
+        "text": "annotate_interpersonal in lib/sfl/compiler/pass_two/pass_two_engine.rb performs interpersonal SFL annotation with circuit breaker retries",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-sfl-compiler",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-sfl-compiler.lib.sfl.compiler.pass_two.pass_two_engine.SFL.Compiler.PassTwoEngine.annotate_interpersonal",
+          "file_path": "lib/sfl/compiler/pass_two/pass_two_engine.rb",
+          "start_line": 95,
+          "end_line": 122,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      }
+    ],
+    "Errors and Corrections": [],
+    "Potential Leads": [],
+    "Source Reliability": [],
+    "Corrections Summary": [],
+    "Revised Summary": [],
+    "Fact-Checker Assessment": [],
+    "Tip Suggestion": []
+  },
+  "meta_scores": {
+    "claim_provenance": 5.0,
+    "section_completeness": 1.0,
+    "severity_calibration": 5.0,
+    "self_critique_payoff": 1.0,
+    "raw_score": 3.4,
+    "pitfall_penalty": 0.0,
+    "final_score": 3.4,
+    "chain_integrity": 1.0
+  },
+  "final_score": 3.4,
+  "generated_at": "2026-07-04T12:00:00Z"
+}

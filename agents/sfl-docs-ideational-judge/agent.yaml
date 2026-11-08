@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: sfl-docs-ideational-judge
+version: "0.1.0"
+description: "Ideational metafunction judge for the SFL docs debate: audits documentation drafts for process-type coverage (material/mental/relational), explicit participants, and circumstantial boundaries, citing the process-type validation checkers."

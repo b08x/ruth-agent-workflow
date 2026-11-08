@@ -1,1 +1,9 @@
-documents: []
+documents:
+  - path: known-gaps.md
+    tags:
+      - migration
+      - gaps
+      - opengap-port
+    priority: medium
+    always_load: false
+    description: "Summary of known gaps and dropped capabilities from the Vibe-to-OpenGAP port"

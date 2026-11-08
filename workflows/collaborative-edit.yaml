@@ -1,0 +1,54 @@
+name: collaborative-edit
+description: "Collaborative doc edit session: pairing mode for mechanical fixes, structured proposal batches, Plannotator review gate, and single-edit applications."
+version: "0.1.0"
+inputs:
+  - name: target_file
+    type: string
+    description: "Document file to review or edit"
+    required: true
+outputs:
+  - name: updated_file
+    type: string
+    description: "Updated document file"
+steps:
+  - id: mechanical-fixes
+    action: "Identify and apply mechanical fixes directly (typos, broken links, markdown formatting)"
+    inputs:
+      file: "${{ inputs.target_file }}"
+    outputs:
+      - mechanical_log
+  - id: annotate-proposals
+    action: "Annotate structural clauses and format proposals as claim -> problem class -> evidence needed -> proposed rewrite"
+    inputs:
+      file: "${{ inputs.target_file }}"
+      rule: "Batch related findings into a proposal set for review."
+    outputs:
+      - proposal_batch
+  - id: gate
+    action: "Mandatory human-in-the-loop Plannotator review gate on batched proposal set"
+    tool: plannotator
+    depends_on:
+      - annotate-proposals
+    inputs:
+      file: "${{ steps.annotate-proposals.outputs.proposal_batch }}"
+      require_approval: true
+    compliance:
+      requires_approval: true
+      audit_level: full
+    outputs:
+      - gate_decision
+  - id: apply-approved
+    action: "Apply only approved proposals, one edit call per fix, recording rejected items in audit notes"
+    agent: sfl-docs-editor
+    depends_on:
+      - gate
+    conditions:
+      - "${{ steps.gate.outputs.gate_decision == 'approved' }}"
+    inputs:
+      approved_proposals: "${{ steps.gate.outputs.approved_items }}"
+      target_file: "${{ inputs.target_file }}"
+    outputs:
+      - edit_summary
+error_handling:
+  on_step_failure: escalate
+  escalation_target: supervisor

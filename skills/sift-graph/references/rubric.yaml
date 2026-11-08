@@ -1,0 +1,128 @@
+# SIFT-Graph Rubric Dimensions (YAML)
+# 
+# This file defines the weighted dimensions for scoring SIFT-Graph reports.
+# Modeled on the rubysmithing scoring algorithm:
+#   https://github.com/rubysmithing/plugins/blob/main/agents/director-of-ai-risk.md
+#
+# Usage:
+#   - Loaded by sift_graph.py for scoring
+#   - Can be customized per-domain (Ruby, Python, Bash, etc.)
+#   - Essential Cap and Pitfall Penalty are hard-coded in the producer
+
+# Dimensions with weights (must sum to 1.0)
+dimensions:
+  claim_provenance:
+    weight: 0.40
+    description: "Fraction of claims with valid provenance tuples that resolve to the graph"
+    scoring:
+      1: "< 50% of claims have valid provenance"
+      2: "50-70% of claims have valid provenance"
+      3: "70-85% of claims have valid provenance"
+      4: "85-95% of claims have valid provenance"
+      5: ">= 95% of claims have valid provenance"
+
+  section_completeness:
+    weight: 0.25
+    description: "All 8 SIFT sections present with at least 1 claim each"
+    scoring:
+      1: "0-2 sections present"
+      2: "3-4 sections present"
+      3: "5-6 sections present"
+      4: "7 sections present"
+      5: "All 8 sections present"
+
+  severity_calibration:
+    weight: 0.20
+    description: "Distribution of credibility scores (1-5) — lower variance = better calibration"
+    scoring:
+      1: "std_dev > 1.5 (high variance, inconsistent)"
+      2: "std_dev 1.0-1.5"
+      3: "std_dev 0.5-1.0"
+      4: "std_dev 0.2-0.5"
+      5: "std_dev < 0.2 (highly consistent)"
+
+  self_critique_payoff:
+    weight: 0.15
+    description: "Fraction of critique-ledger claims that were NOT in the original ledger"
+    scoring:
+      1: "0% (no new claims from critique)"
+      2: "1-10% new claims"
+      3: "11-25% new claims"
+      4: "26-50% new claims"
+      5: "> 50% new claims"
+
+# Essential Cap
+# If claim_provenance score < 3, final score is capped at 2.0
+essential_cap:
+  dimension: claim_provenance
+  threshold: 3
+  cap: 2.0
+
+# Pitfall Penalty
+# Subtract 0.3 for each anti-pattern detected
+pitfall_penalty:
+  amount: 0.3
+  anti_patterns:
+    - "Claim with provenance tuple that does NOT resolve to the graph"
+    - "Claim with evidence_type not in allowed enum"
+    - "Section with 0 claims"
+    - "Credibility score outside 1-5 range"
+    - "Claim with missing required provenance field"
+
+# Allowed values for validation
+allowed:
+  evidence_types:
+    - SourceCode
+    - Documentation
+    - Test
+    - Config
+    - Comment
+    - ExternalSource
+    - Inference
+
+  node_types:
+    - Function
+    - Method
+    - Class
+    - Variable
+    - File
+    - Module
+    - Section
+    - Folder
+    - Route
+    - Edge
+
+  sections:
+    - Verified Facts
+    - Errors and Corrections
+    - Potential Leads
+    - Source Reliability
+    - Corrections Summary
+    - Revised Summary
+    - Fact-Checker Assessment
+    - Tip Suggestion
+
+# Domain-specific overrides
+# Example: for Bash codebases, weight Shellcheck compliance higher
+domain_overrides:
+  bash:
+    dimensions:
+      claim_provenance:
+        weight: 0.35
+      section_completeness:
+        weight: 0.20
+      severity_calibration:
+        weight: 0.25
+      self_critique_payoff:
+        weight: 0.20
+
+  ruby:
+    dimensions:
+      claim_provenance:
+        weight: 0.45
+      section_completeness:
+        weight: 0.20
+      severity_calibration:
+        weight: 0.20
+      self_critique_payoff:
+        weight: 0.15

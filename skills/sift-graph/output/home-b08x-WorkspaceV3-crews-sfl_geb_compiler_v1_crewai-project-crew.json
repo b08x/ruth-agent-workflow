@@ -1,0 +1,336 @@
+{
+  "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+  "query": "crew",
+  "claims": [
+    {
+      "claim_id": "2c8e1b55",
+      "text": "crew (Method) in src/sfl_geb_compiler/crew.py is a method related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.crew",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 210,
+        "end_line": 220,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "c1987ed4",
+      "text": "Crew Project (Section) in AGENTS.md is a section related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Section",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Project",
+        "file_path": "AGENTS.md",
+        "start_line": 102,
+        "end_line": 103,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "a7e59dd0",
+      "text": "Crew Execution (Section) in AGENTS.md is a section related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Section",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Execution",
+        "file_path": "AGENTS.md",
+        "start_line": 479,
+        "end_line": 480,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "9ece45de",
+      "text": "Crew Options (Section) in AGENTS.md is a section related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Section",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Options",
+        "file_path": "AGENTS.md",
+        "start_line": 503,
+        "end_line": 504,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "c3eedfa6",
+      "text": "crewai (Class) in pyproject.toml is a class related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Class",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.pyproject.tool.crewai",
+        "file_path": "pyproject.toml",
+        "start_line": 23,
+        "end_line": 26,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "dd6dfc4e",
+      "text": "run_crew (Variable) in pyproject.toml is a variable related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Variable",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.pyproject.run_crew",
+        "file_path": "pyproject.toml",
+        "start_line": 13,
+        "end_line": 13,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "1fbb2716",
+      "text": "__file__ (File) in src/sfl_geb_compiler/crew.py is a file related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "File",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.__file__",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 0,
+        "end_line": 0,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "c3fba211",
+      "text": "SflGebCompiler Crew (Section) in README.md is a section related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Section",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.README.SflGebCompiler Crew",
+        "file_path": "README.md",
+        "start_line": 1,
+        "end_line": 2,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "84089bc9",
+      "text": "Crew Class Pattern (Section) in AGENTS.md is a section related to crew",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Section",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Class Pattern",
+        "file_path": "AGENTS.md",
+        "start_line": 199,
+        "end_line": 200,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    }
+  ],
+  "critique_claims": [],
+  "sections": {
+    "Verified Facts": [
+      {
+        "claim_id": "2c8e1b55",
+        "text": "crew (Method) in src/sfl_geb_compiler/crew.py is a method related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.crew",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 210,
+          "end_line": 220,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "c1987ed4",
+        "text": "Crew Project (Section) in AGENTS.md is a section related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Section",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Project",
+          "file_path": "AGENTS.md",
+          "start_line": 102,
+          "end_line": 103,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "a7e59dd0",
+        "text": "Crew Execution (Section) in AGENTS.md is a section related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Section",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Execution",
+          "file_path": "AGENTS.md",
+          "start_line": 479,
+          "end_line": 480,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "9ece45de",
+        "text": "Crew Options (Section) in AGENTS.md is a section related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Section",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Options",
+          "file_path": "AGENTS.md",
+          "start_line": 503,
+          "end_line": 504,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "c3eedfa6",
+        "text": "crewai (Class) in pyproject.toml is a class related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Class",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.pyproject.tool.crewai",
+          "file_path": "pyproject.toml",
+          "start_line": 23,
+          "end_line": 26,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "dd6dfc4e",
+        "text": "run_crew (Variable) in pyproject.toml is a variable related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Variable",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.pyproject.run_crew",
+          "file_path": "pyproject.toml",
+          "start_line": 13,
+          "end_line": 13,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "1fbb2716",
+        "text": "__file__ (File) in src/sfl_geb_compiler/crew.py is a file related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "File",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.__file__",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 0,
+          "end_line": 0,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "c3fba211",
+        "text": "SflGebCompiler Crew (Section) in README.md is a section related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Section",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.README.SflGebCompiler Crew",
+          "file_path": "README.md",
+          "start_line": 1,
+          "end_line": 2,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "84089bc9",
+        "text": "Crew Class Pattern (Section) in AGENTS.md is a section related to crew",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Section",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.AGENTS.Crew Class Pattern",
+          "file_path": "AGENTS.md",
+          "start_line": 199,
+          "end_line": 200,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      }
+    ],
+    "Errors and Corrections": [],
+    "Potential Leads": [],
+    "Source Reliability": [],
+    "Corrections Summary": [],
+    "Revised Summary": [],
+    "Fact-Checker Assessment": [],
+    "Tip Suggestion": []
+  },
+  "meta_scores": {
+    "claim_provenance": 5.0,
+    "section_completeness": 1.0,
+    "severity_calibration": 5.0,
+    "self_critique_payoff": 1.0,
+    "raw_score": 3.4,
+    "pitfall_penalty": 0.0,
+    "final_score": 3.4,
+    "chain_integrity": 1.0
+  },
+  "final_score": 3.4,
+  "generated_at": "2026-07-04T12:00:00Z"
+}

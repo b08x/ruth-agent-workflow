@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: sfl-docs-drafter
+version: "0.1.0"
+description: "Drafts new technical documentation from SFL genre templates after register setup (Field/Tenor/Mode), grounding participants and circumstances in source material and Notebook corpus queries, then submits the draft for metafunction debate."

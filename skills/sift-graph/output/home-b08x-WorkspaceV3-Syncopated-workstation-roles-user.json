@@ -1,0 +1,1114 @@
+{
+  "meta": {
+    "producer": "sift-graph v0.1",
+    "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+    "target": "roles/user/",
+    "graph_generation": "2026-11-05T18:10:48Z",
+    "coverage_disclosure": "goals/ tree not present in the graph index; goals-doc claims excluded from the ledger"
+  },
+  "rubric": {
+    "total_claims": 47,
+    "resolved": 47,
+    "provCoverage": 1,
+    "provScore": 5,
+    "sections": [
+      "Verified Facts",
+      "Errors & Corrections",
+      "Potential Leads",
+      "Structure",
+      "Idioms",
+      "Functionality",
+      "Testing",
+      "Recommendations"
+    ],
+    "secScore": 5,
+    "cred_mean": 3.85,
+    "cred_std": 0.9,
+    "calScore": 3,
+    "critiqueNew": 8,
+    "payoff": 0.17,
+    "payScore": 3,
+    "raw": 4.3,
+    "pitfalls": 0,
+    "final": 4.3,
+    "chain": 3
+  },
+  "ledger": [
+    {
+      "id": "V1",
+      "section": "Verified Facts",
+      "text": "tasks/main.yml is an 11-task dispatcher: two debug tasks, a gated assert include, an ungated distro include_vars, and eight feature includes (uv, bun, go, cargo, gnome-extensions, vscode-extensions, firstboot).",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 4,
+          "end_line": 93,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "V2",
+      "section": "Verified Facts",
+      "text": "Every dispatcher include is gated with the repo's feature-flag dialect: `<flag> | default(<bool>) | bool`.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 27,
+          "end_line": 84,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "V3",
+      "section": "Verified Facts",
+      "text": "The assert include applies `become: true, become_user: \"{{ user.name }}\"` (gated by `user_assert_enabled | default(true) | bool`, tags [user, assert, always]).",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 14,
+          "end_line": 21,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/defaults/main.yml",
+          "start_line": 9,
+          "end_line": 9,
+          "evidence_type": "SourceCode",
+          "node_type": "Variable",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.roles.user.defaults.main.user_assert_enabled"
+        }
+      ]
+    },
+    {
+      "id": "V4",
+      "section": "Verified Facts",
+      "text": "The firstboot include alone runs in root context (`become_user: root`, per ADR-6) because destinations are /usr/local/bin, /etc/xdg/autostart, /etc/profile.d plus the machine marker.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 85,
+          "end_line": 93,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "V5",
+      "section": "Verified Facts",
+      "text": "assert.yml implements 22 fail-fast checks: facts gathered, OS family/distro, identity, home validity, uv python format, effective UID/name, run-as-expected-user, home confinement, cargo/Go/GNOME/VS Code manifest shapes, DNF-family package manager, firstboot manifest shape + per-entry controller-side file existence, marker path/parent contract, and the osbuild-baked /etc/syncopated-user.conf WORKSTATION_USER contract.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/assert.yml",
+          "start_line": 4,
+          "end_line": 326,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.assert.yml"
+        }
+      ]
+    },
+    {
+      "id": "V6",
+      "section": "Verified Facts",
+      "text": "defaults/main.yml defines 36 variables, every one role-prefixed `user_*` (Tier 2 discipline), including 8 list/map manifests.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/defaults/main.yml",
+          "start_line": 1,
+          "end_line": 278,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.defaults.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "V7",
+      "section": "Verified Facts",
+      "text": "cargo.yml contains exactly two root-escalation sites (DNF cargo install lines 90-91; DNF crates install lines 260-261) — the rest of the role runs as the workstation user via the dispatcher's apply.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 86,
+          "end_line": 92,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 246,
+          "end_line": 267,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        }
+      ]
+    },
+    {
+      "id": "V8",
+      "section": "Verified Facts",
+      "text": "The `user_firstboot_files` manifest (NB: 44-line list in defaults) is the single source driving directory creation, byte-identical deployment, and the assert shape checks.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "file_path": "roles/user/defaults/main.yml",
+          "start_line": 208,
+          "end_line": 251,
+          "node_type": "Variable",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.roles.user.defaults.main.user_firstboot_files",
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "evidence_type": "SourceCode"
+        }
+      ]
+    },
+    {
+      "id": "V9",
+      "section": "Verified Facts",
+      "text": "firstboot.yml is a 6-task deploy: dirs, block copy loop over the manifest, rescue debug+fail, marker stat, and the pull-success marker write (root:root 0644, ISO-8601).",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/firstboot.yml",
+          "start_line": 14,
+          "end_line": 87,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.firstboot.yml"
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "section": "Verified Facts",
+      "text": "files/firstboot/syncopated-firstboot is a two-stage bash program: 67 outlined declarations, main→stage1/stage2 orchestration, 90 intra-file CALLS edges, with step functions install_yadm, update_system, setup_toolchains, run_ansible_pull, verify_pull_marker, offer_reboot, set_graphical_target.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/files/firstboot/syncopated-firstboot",
+          "start_line": 50,
+          "end_line": 627,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.files.firstboot.syncopated-firstboot"
+        }
+      ]
+    },
+    {
+      "id": "V11",
+      "section": "Verified Facts",
+      "text": "tests/check_firstboot_parity.yml (10 tasks) is the SSOT parity gate: byte-compare against ../../osbuild singleton is the GATE; the vendored-submodule comparison is INFORMATIONAL by design; run with -i tests/inventory.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tests/check_firstboot_parity.yml",
+          "start_line": 1,
+          "end_line": 189,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tests.check_firstboot_parity.yml"
+        }
+      ]
+    },
+    {
+      "id": "V12",
+      "section": "Verified Facts",
+      "text": "vars/AlmaLinux.yml and vars/Fedora.yml are deliberately near-empty placeholders; vars/Rocky.yml carries the explanatory comment; all three exist to satisfy `include_vars \"{{ ansible_distribution }}.yml\"` (main.yml task 23-25).",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/vars/Rocky.yml",
+          "start_line": 1,
+          "end_line": 5,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.vars.Rocky.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 23,
+          "end_line": 25,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "V13",
+      "section": "Verified Facts",
+      "text": "meta/main.yml declares min_ansible_version 2.14, MIT license, and no dependencies; meta/argument_specs.yml is kept in parity with defaults (README documents the 37-row parity).",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/meta/main.yml",
+          "start_line": 1,
+          "end_line": 14,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.meta.main.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/meta/argument_specs.yml",
+          "start_line": 1,
+          "end_line": 10,
+          "evidence_type": "Config",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.meta.argument_specs.yml"
+        }
+      ]
+    },
+    {
+      "id": "V14",
+      "section": "Verified Facts",
+      "text": "The machine pull marker is home-based (~/.initial-firstboot, primary user's home, ADR-3 phase-4 amendment); assert.yml 231-281 validates both the marker path and the parent directory existence.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/assert.yml",
+          "start_line": 231,
+          "end_line": 281,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.assert.yml"
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "section": "Errors & Corrections",
+      "text": "The cargo stage-split is unwired: cargo-probe.yml / cargo-strategy.yml / cargo-install.yml / cargo-crates.yml (405 lines) exist as File nodes with no inbound IMPORTS edges, and a repo-wide grep finds no include_tasks/import_tasks referencing them — the logic is duplicated inside the rewritten cargo.yml.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-probe.yml",
+          "start_line": 1,
+          "end_line": 201,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-probe.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-strategy.yml",
+          "start_line": 1,
+          "end_line": 28,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-strategy.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-install.yml",
+          "start_line": 1,
+          "end_line": 122,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-install.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-crates.yml",
+          "start_line": 1,
+          "end_line": 54,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-crates.yml"
+        }
+      ],
+      "critique": false
+    },
+    {
+      "id": "E2",
+      "section": "Errors & Corrections",
+      "text": "The split is additionally uncommitted: git status shows `M roles/user/tasks/cargo.yml` plus four `??` untracked files — the whole refactor lives only in the working tree.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 1,
+          "end_line": 334,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-probe.yml",
+          "start_line": 1,
+          "end_line": 201,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-probe.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "E3",
+      "section": "Errors & Corrections",
+      "text": "The four split files carry zero `tags:` (grep count 0) while the inline cargo.yml block is tagged once at block level — as-written they ignore the repo's domain-tag convention.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-probe.yml",
+          "start_line": 1,
+          "end_line": 201,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-probe.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "E4",
+      "section": "Errors & Corrections",
+      "text": "cargo-install.yml embeds explicit `not (ansible_check_mode | default(false))` when-guards (lines 13, 22, 54, 77) that the inline cargo.yml equivalents lack — the two copies have already drifted in check-mode semantics.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-install.yml",
+          "start_line": 11,
+          "end_line": 102,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-install.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "E5",
+      "section": "Errors & Corrections",
+      "text": "user_my_variable is scaffolding residue: declared in defaults (line 6), mirrored in meta/argument_specs.yml (line 8), and printed by the opening debug task tagged [user, always] — it fires on every run. README:115-120 documents it as the deliberate 37th row, so it is documented debt rather than a hidden bug.",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/defaults/main.yml",
+          "start_line": 6,
+          "end_line": 6,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.defaults.main.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 4,
+          "end_line": 7,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/README.md",
+          "start_line": 115,
+          "end_line": 144,
+          "evidence_type": "Documentation",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.README.md"
+        }
+      ],
+      "critique": false
+    },
+    {
+      "id": "E6",
+      "section": "Errors & Corrections",
+      "text": "tasks/pip.yml and tasks/ranger.yml are orphans: no IMPORTS edge from main.yml and no include anywhere in the repo; README:234 already documents them as migration residue with the directive \"Dispatch or delete the two files.\"",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/pip.yml",
+          "start_line": 1,
+          "end_line": 40,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.pip.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/ranger.yml",
+          "start_line": 1,
+          "end_line": 40,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.ranger.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/README.md",
+          "start_line": 234,
+          "end_line": 234,
+          "evidence_type": "Documentation",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.README.md"
+        }
+      ],
+      "critique": false
+    },
+    {
+      "id": "E7",
+      "section": "Errors & Corrections",
+      "text": "ranger.yml registers the unprefixed `user_ranger_check` (line 12 — Tier 2 requires `_user_*`) and sets become:true without become_user, so its effective user depends on the invoking play (both documented at README:234).",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/ranger.yml",
+          "start_line": 12,
+          "end_line": 12,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.ranger.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "E8",
+      "section": "Errors & Corrections",
+      "text": "vars/main.yml is a comment-only stub (`# vars file for...`) — an empty file retained for role-structure convention.",
+      "cred": 2,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/vars/main.yml",
+          "start_line": 1,
+          "end_line": 2,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.vars.main.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "L1",
+      "section": "Potential Leads",
+      "text": "The obvious completion path is wiring cargo.yml to include the stage files (match the README:57 producer-before-consumer pattern) or deleting them — but neither the README nor the tracked docs describe the split (goals/ is not indexed/absent from graph; disclosed).",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 108,
+          "end_line": 141,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/README.md",
+          "start_line": 53,
+          "end_line": 57,
+          "evidence_type": "Documentation",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.README.md"
+        }
+      ],
+      "critique": false
+    },
+    {
+      "id": "L2",
+      "section": "Potential Leads",
+      "text": "cargo-probe.yml's 'Re-probe the system cargo version after the DNF decision' (lines 71-77) consumes facts only the install stage sets (_user_cargo_system_final_version, _user_cargo_dnf_attempt) — the standalone probe contract must be validated before wiring probe as an independent stage.",
+      "cred": 2,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-probe.yml",
+          "start_line": 71,
+          "end_line": 77,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-probe.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "L3",
+      "section": "Potential Leads",
+      "text": "argument_specs↔defaults parity is maintained by hand (README:120). The repo already has a byte-parity gate pattern for firstboot — an analogous defaults/argument_specs parity gate would close the manual gap.",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/meta/argument_specs.yml",
+          "start_line": 1,
+          "end_line": 10,
+          "evidence_type": "Config",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.meta.argument_specs.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/README.md",
+          "start_line": 120,
+          "end_line": 120,
+          "evidence_type": "Documentation",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.README.md"
+        }
+      ],
+      "critique": false
+    },
+    {
+      "id": "L4",
+      "section": "Potential Leads",
+      "text": "Cargo crate corpus is 10 entries with 3 DNF-preferred mappings (defaults 69-98): defaults/main.yml and README:142-144 describe the same manifests — two sources of truth for the crate list.",
+      "cred": 2,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/defaults/main.yml",
+          "start_line": 69,
+          "end_line": 98,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.defaults.main.yml"
+        }
+      ],
+      "critique": false
+    },
+    {
+      "id": "L5",
+      "section": "Potential Leads",
+      "text": "The parity gate resolves the SSOT at <repo>/../../osbuild — a sibling-checkout coupling; the gate does assert tree existence (parity tasks 67-77), but no in-repo CI wiring is visible (graph holds no CI surface for it).",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tests/check_firstboot_parity.yml",
+          "start_line": 53,
+          "end_line": 77,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tests.check_firstboot_parity.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "S1",
+      "section": "Structure",
+      "text": "The graph holds 427 nodes under roles/user/: 272 Function (task/script symbols), 75 Variable, 30 File, 29 Module, 14 Section, 7 Folder; 212 Function nodes sit in tasks/*.yml.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks",
+          "start_line": 1,
+          "end_line": 1,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "section": "Structure",
+      "text": "47 intra-role edges: 8 IMPORTS dispatch edges (main.yml → assert, uv, bun, go, cargo, gnome-extensions, vscode-extensions, firstboot), 9 REFERENCES_FILE from README, 29 CONTAINS_FILE, and 1 cross-script IMPORTS syncopated-path.sh → rbenv.sh.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 14,
+          "end_line": 93,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "section": "Structure",
+      "text": "Task density by file: cargo.yml 39, gnome-extensions.yml 28, go.yml 27, cargo-probe.yml 25, assert.yml 22, vscode-extensions.yml 15, cargo-install.yml 14, main.yml 11, bun.yml 9, cargo-crates.yml 7, firstboot.yml 6, cargo-strategy.yml 3, ranger.yml 3, pip.yml 2, uv.yml 1.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 1,
+          "end_line": 334,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "section": "Structure",
+      "text": "The role owns the 7-file firstboot suite under files/firstboot/ (syncopated-firstboot, -launcher, -firstboot.sh, -path.sh, syncopated-toolchains, rbenv.sh) — the only executable-code surface in the role; templates/ holds only a .keep placeholder.",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/files/firstboot",
+          "start_line": 1,
+          "end_line": 1,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.files.firstboot"
+        }
+      ]
+    },
+    {
+      "id": "I1",
+      "section": "Idioms",
+      "text": "Feature-flag dialect `| default(bool) | bool` is used uniformly across all dispatcher gates and firstboot assert gates.",
+      "cred": 5,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 27,
+          "end_line": 93,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "I2",
+      "section": "Idioms",
+      "text": "Probe idiom: read-only probes set `check_mode: false` + `changed_when: false` + `failed_when: false` (e.g., the TMPDIR noexec probe, cargo.yml 25-38).",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 25,
+          "end_line": 38,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        }
+      ]
+    },
+    {
+      "id": "I3",
+      "section": "Idioms",
+      "text": "set_fact producer-before-consumer split: strategy facts are computed in one task and consumed strictly later; the inline comment (cargo.yml:75) cites failure point 17 and README:57 documents the rule.",
+      "cred": 4,
+      "et": "Comment",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 108,
+          "end_line": 134,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        }
+      ]
+    },
+    {
+      "id": "I4",
+      "section": "Idioms",
+      "text": "Hard-fail idiom: block / rescue with a diagnostic debug followed by an explicit fail task (firstboot.yml 40-53; cargo.yml rustup failure path 162-170).",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/firstboot.yml",
+          "start_line": 26,
+          "end_line": 53,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.firstboot.yml"
+        }
+      ]
+    },
+    {
+      "id": "I5",
+      "section": "Idioms",
+      "text": "Skip-if-present guards all carry force overrides: user_cargo_force_install, user_cargo_force_crates, user_bun_force_install, user_go_force_install, user_vscode_force_install, user_gnome_extensions_force_install (defaults 53, 57, 102, 124, plus bun/go lines).",
+      "cred": 4,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/defaults/main.yml",
+          "start_line": 1,
+          "end_line": 278,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.defaults.main.yml"
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "section": "Functionality",
+      "text": "Cargo decision tree: probe SYSTEM cargo at /usr/bin/cargo (never PATH); DNF fallback install; verdicts rustup-forced / system / rustup-older / rustup-unavailable; user_cargo_force_install bypasses all; crates install with --locked, DNF-preferred via user_cargo_crate_dnf_map; per-crate failures non-fatal.",
+      "cred": 4,
+      "et": "Comment",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 110,
+          "end_line": 141,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 296,
+          "end_line": 313,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "section": "Functionality",
+      "text": "TMPDIR noexec guard falls back to ~/.cargo/tmp; rustup runs --no-modify-path; the role never writes shell rc files or ~/.cargo/config.toml (Layer 2 boundary, stated in the cargo.yml header contract).",
+      "cred": 4,
+      "et": "Comment",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 25,
+          "end_line": 49,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo.yml",
+          "start_line": 146,
+          "end_line": 176,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo.yml"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "section": "Functionality",
+      "text": "Firstboot stage flow: stage1 runs update_system, install_yadm, setup_toolchains, run_ansible_pull, verify_pull_marker; stage2 runs stage2_run_setup, clone_and_bootstrap, prompt_switch_graphical, offer_reboot — with splash/choose UX and have_gum feature detection; STAGE2_MARKER and MACHINE_MARKER gate the stages.",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/files/firstboot/syncopated-firstboot",
+          "start_line": 339,
+          "end_line": 627,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.files.firstboot.syncopated-firstboot"
+        }
+      ]
+    },
+    {
+      "id": "T1",
+      "section": "Testing",
+      "text": "The role's dedicated verification surface is the SSOT parity gate (tests/check_firstboot_parity.yml, 10 tasks, read-only localhost playbook with its own tests/inventory); no molecule scenario is scoped to this role.",
+      "cred": 4,
+      "et": "Test",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tests/check_firstboot_parity.yml",
+          "start_line": 1,
+          "end_line": 189,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tests.check_firstboot_parity.yml"
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "section": "Testing",
+      "text": "assert.yml is independently runnable via --tags assert / tasks_from: assert.yml; the firstboot assertions carry their own feature-flag gates precisely so a defaults-less `tasks_from: assert.yml` run stays quiet (assert.yml:184-190 comment).",
+      "cred": 4,
+      "et": "Comment",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/assert.yml",
+          "start_line": 172,
+          "end_line": 229,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.assert.yml"
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "section": "Testing",
+      "text": "Correction (critique pass): meta/argument_specs.yml is NOT orphaned — role argument specs are validated automatically at role import on ansible-core (the role pins min 2.14); the generic playbooks/_argspec/*.yml examples are unrelated to this role.",
+      "cred": 3,
+      "et": "Config",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/meta/argument_specs.yml",
+          "start_line": 1,
+          "end_line": 10,
+          "evidence_type": "Config",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.meta.argument_specs.yml"
+        }
+      ],
+      "critique": true
+    },
+    {
+      "id": "R1",
+      "section": "Recommendations",
+      "text": "Decide the cargo stage-split fate and commit it atomically: wire cargo.yml to the four stage files (re-tagging them) or delete the four files — do not leave duplicated logic uncommitted in the working tree. (From E1-E4/E3.3)",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-probe.yml",
+          "start_line": 1,
+          "end_line": 201,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-probe.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-strategy.yml",
+          "start_line": 1,
+          "end_line": 28,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-strategy.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-install.yml",
+          "start_line": 1,
+          "end_line": 122,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-install.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/cargo-crates.yml",
+          "start_line": 1,
+          "end_line": 54,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.cargo-crates.yml"
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "section": "Recommendations",
+      "text": "Remove the always-tagged user_my_variable demo trio (defaults:6, argument_specs:8, main.yml task/1) or gate it behind a debug flag — it prints on every dispatched run. (From E5)",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/defaults/main.yml",
+          "start_line": 6,
+          "end_line": 6,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.defaults.main.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/main.yml",
+          "start_line": 4,
+          "end_line": 7,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.main.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/README.md",
+          "start_line": 115,
+          "end_line": 144,
+          "evidence_type": "Documentation",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.README.md"
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "section": "Recommendations",
+      "text": "Execute README:234's own directive: dispatch or delete pip.yml/ranger.yml; if kept, fix the `user_ranger_check` register prefix and pin become_user. (From E6/E7)",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/pip.yml",
+          "start_line": 1,
+          "end_line": 40,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.pip.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tasks/ranger.yml",
+          "start_line": 1,
+          "end_line": 40,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tasks.ranger.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/README.md",
+          "start_line": 234,
+          "end_line": 234,
+          "evidence_type": "Documentation",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.README.md"
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "section": "Recommendations",
+      "text": "Extend the parity-gate pattern to defaults↔argument_specs parity so the 37-row contract is machine-checked. (From L3)",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/meta/argument_specs.yml",
+          "start_line": 1,
+          "end_line": 10,
+          "evidence_type": "Config",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.meta.argument_specs.yml"
+        },
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/README.md",
+          "start_line": 120,
+          "end_line": 120,
+          "evidence_type": "Documentation",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.README.md"
+        }
+      ]
+    },
+    {
+      "id": "R5",
+      "section": "Recommendations",
+      "text": "CI-wire the firstboot parity gate plus the repo-standard `--tags assert --check` pre-flight so the sibling-osbuild SSOT contract cannot drift silently. (From L5)",
+      "cred": 3,
+      "et": "SourceCode",
+      "prov": [
+        {
+          "project": "home-b08x-WorkspaceV3-Syncopated-workstation",
+          "file_path": "roles/user/tests/check_firstboot_parity.yml",
+          "start_line": 53,
+          "end_line": 77,
+          "evidence_type": "SourceCode",
+          "node_type": "Function",
+          "qualified_name": "home-b08x-WorkspaceV3-Syncopated-workstation.tests.check_firstboot_parity.yml"
+        }
+      ]
+    }
+  ]
+}

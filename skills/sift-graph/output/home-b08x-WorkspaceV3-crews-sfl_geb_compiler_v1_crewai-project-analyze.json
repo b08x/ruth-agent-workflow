@@ -1,0 +1,23 @@
+{
+  "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+  "query": "analyze",
+  "claims": [],
+  "critique_claims": [],
+  "sections": {
+    "Verified Facts": [],
+    "Errors and Corrections": [],
+    "Potential Leads": [],
+    "Source Reliability": [],
+    "Corrections Summary": [],
+    "Revised Summary": [],
+    "Fact-Checker Assessment": [],
+    "Tip Suggestion": []
+  },
+  "meta_scores": {
+    "final_score": 0.0,
+    "claim_provenance": 0.0,
+    "section_completeness": 0.0
+  },
+  "final_score": 0.0,
+  "generated_at": "2026-07-04T12:00:00Z"
+}

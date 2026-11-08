@@ -1,0 +1,370 @@
+{
+  "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+  "query": "SflGebCompiler",
+  "claims": [
+    {
+      "claim_id": "c8199815",
+      "text": "SflGebCompiler Crew (Section) in README.md is a section related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Section",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.README.SflGebCompiler Crew",
+        "file_path": "README.md",
+        "start_line": 1,
+        "end_line": 2,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "f3caa7c5",
+      "text": "SflGebCompilerCrew (Class) in src/sfl_geb_compiler/crew.py is a class related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Class",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 17,
+        "end_line": 220,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "7e69d322",
+      "text": "crew (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.crew",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 210,
+        "end_line": 220,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "e459e1f3",
+      "text": "ingest_document (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.ingest_document",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 164,
+        "end_line": 170,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "f7c41031",
+      "text": "enforce_constraints (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.enforce_constraints",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 191,
+        "end_line": 197,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "b8f1c332",
+      "text": "synthesize_analysis (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.synthesize_analysis",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 200,
+        "end_line": 206,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "e7c1465d",
+      "text": "polyglot_document_ingestor (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.polyglot_document_ingestor",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 22,
+        "end_line": 46,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "f7d890f8",
+      "text": "sfl_semantic_proposer (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.sfl_semantic_proposer",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 50,
+        "end_line": 74,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "76e99565",
+      "text": "sfl_adversarial_challenger (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.sfl_adversarial_challenger",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 78,
+        "end_line": 102,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    },
+    {
+      "claim_id": "e7073cd7",
+      "text": "deterministic_logic_gate (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+      "provenance": {
+        "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+        "node_type": "Method",
+        "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.deterministic_logic_gate",
+        "file_path": "src/sfl_geb_compiler/crew.py",
+        "start_line": 106,
+        "end_line": 130,
+        "evidence_type": "SourceCode"
+      },
+      "credibility": 4,
+      "evidence_type": "SourceCode",
+      "section": "Verified Facts",
+      "notes": null
+    }
+  ],
+  "critique_claims": [],
+  "sections": {
+    "Verified Facts": [
+      {
+        "claim_id": "c8199815",
+        "text": "SflGebCompiler Crew (Section) in README.md is a section related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Section",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.README.SflGebCompiler Crew",
+          "file_path": "README.md",
+          "start_line": 1,
+          "end_line": 2,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "f3caa7c5",
+        "text": "SflGebCompilerCrew (Class) in src/sfl_geb_compiler/crew.py is a class related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Class",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 17,
+          "end_line": 220,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "7e69d322",
+        "text": "crew (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.crew",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 210,
+          "end_line": 220,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "e459e1f3",
+        "text": "ingest_document (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.ingest_document",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 164,
+          "end_line": 170,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "f7c41031",
+        "text": "enforce_constraints (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.enforce_constraints",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 191,
+          "end_line": 197,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "b8f1c332",
+        "text": "synthesize_analysis (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.synthesize_analysis",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 200,
+          "end_line": 206,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "e7c1465d",
+        "text": "polyglot_document_ingestor (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.polyglot_document_ingestor",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 22,
+          "end_line": 46,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "f7d890f8",
+        "text": "sfl_semantic_proposer (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.sfl_semantic_proposer",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 50,
+          "end_line": 74,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "76e99565",
+        "text": "sfl_adversarial_challenger (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.sfl_adversarial_challenger",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 78,
+          "end_line": 102,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      },
+      {
+        "claim_id": "e7073cd7",
+        "text": "deterministic_logic_gate (Method) in src/sfl_geb_compiler/crew.py is a method related to SflGebCompiler",
+        "provenance": {
+          "project": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project",
+          "node_type": "Method",
+          "qualified_name": "home-b08x-WorkspaceV3-crews-sfl_geb_compiler_v1_crewai-project.src.sfl_geb_compiler.crew.SflGebCompilerCrew.deterministic_logic_gate",
+          "file_path": "src/sfl_geb_compiler/crew.py",
+          "start_line": 106,
+          "end_line": 130,
+          "evidence_type": "SourceCode"
+        },
+        "credibility": 4,
+        "evidence_type": "SourceCode",
+        "section": "Verified Facts",
+        "notes": null
+      }
+    ],
+    "Errors and Corrections": [],
+    "Potential Leads": [],
+    "Source Reliability": [],
+    "Corrections Summary": [],
+    "Revised Summary": [],
+    "Fact-Checker Assessment": [],
+    "Tip Suggestion": []
+  },
+  "meta_scores": {
+    "claim_provenance": 5.0,
+    "section_completeness": 1.0,
+    "severity_calibration": 5.0,
+    "self_critique_payoff": 1.0,
+    "raw_score": 3.4,
+    "pitfall_penalty": 0.0,
+    "final_score": 3.4,
+    "chain_integrity": 1.0
+  },
+  "final_score": 3.4,
+  "generated_at": "2026-07-04T12:00:00Z"
+}

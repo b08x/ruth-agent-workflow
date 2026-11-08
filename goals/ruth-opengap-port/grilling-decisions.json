@@ -1,0 +1,67 @@
+{
+  "stage": "grilling",
+  "goalSlug": "ruth-opengap-port",
+  "title": "Port the R.U.T.H agent suite from Vibe config to OpenGAP",
+  "resolvedDecisions": [
+    {
+      "id": "agent-scope",
+      "question": "Which agent configs are in scope?",
+      "answer": "Full tree: ruth + ruth-codebase-scout + ruth-qmd-scout + sfl-docs-drafter + sfl-docs-editor + sfl-docs-ideational-judge + sfl-docs-interpersonal-judge + sfl-docs-textual-judge, plus the dormant sfl-docs-workflow restored from its .toml.bak/.md.bak",
+      "sources": [
+        "/home/b08x/.vibe/agents/*.toml",
+        "/home/b08x/.vibe/prompts/*.md"
+      ]
+    },
+    {
+      "id": "skills-scope",
+      "question": "Which skills get ported?",
+      "answer": "Only the 6 real ruth-listed skills: doc-style, update-docs, ruth-voice, qmd, sfl-technical-writing, sift-graph. sfl-metafunction-annotation is NOT ported (judges run on prompts alone). The 3 empty/missing skills (documentation, readme-generator, code-insights-reports) are dropped. update-docs (25,852 chars) stays intact despite exceeding the ~20,000-char OpenGAP guidance."
+    },
+    {
+      "id": "prompt-mapping",
+      "question": "How do system prompts map to OpenGAP?",
+      "answer": "Decompose by function: ruth.md persona -> SOUL.md, hard rules/HTIL mandates -> RULES.md, SFL debate orchestration -> workflows/sfl-docs-debate.md; each leaf's short prompt becomes that sub-agent's SOUL.md"
+    },
+    {
+      "id": "safety-mapping",
+      "question": "How are safety/permission semantics reproduced?",
+      "answer": "Full idiomatic mapping: pre_tool_use hooks with fail_open:false scripts enforce allowlists, tools/*.yaml carry side-effect classes, compliance.supervision expresses HTIL (human_in_the_loop conditional, escalation triggers), DUTIES.md encodes the maker/checker/auditor segregation (drafter=maker, judges=checkers, editor=executor, ruth=orchestrator)"
+    },
+    {
+      "id": "htil-gates",
+      "question": "How are Plannotator review gates preserved?",
+      "answer": "Tool + workflow + rule: tools/plannotator.yaml (approval-required, state-changing), mandatory gate step in workflows/sfl-docs-debate.md, 'no finalize without gate' in RULES.md, graceful degradation (missing CLI -> escalate to human)"
+    },
+    {
+      "id": "external-deps",
+      "question": "How are external service dependencies declared?",
+      "answer": "Declare only codebase-memory-mcp in mcp_servers (stdio, command path via ${VAR} interpolation); qmd and plannotator documented as shell-CLI dependencies; web-search recorded as a known portability gap"
+    },
+    {
+      "id": "repo-layout",
+      "question": "Where does the ported tree live?",
+      "answer": "Repo root IS the ruth agent: fill the OpenGAP scaffold at ruth-agent-workflow/ root, replacing placeholder SOUL.md/RULES.md/DUTIES.md/agent.yaml, example-skill, and generic compliance artifacts"
+    },
+    {
+      "id": "model-runtime",
+      "question": "Model and runtime settings?",
+      "answer": "Keep glm5-3 preferred / mistral-medium-latest fallback / temperature 0.1; raise runtime to max_turns 100, timeout 600"
+    },
+    {
+      "id": "delegation-mode",
+      "question": "Delegation mode? (resolved by inspection)",
+      "answer": "delegation.mode: explicit — ruth spawns a fixed orchestration procedure, not a router"
+    },
+    {
+      "id": "done-condition",
+      "question": "Done condition?",
+      "answer": "opengap validate -d . exits clean with zero errors; documentation (parity map etc.) is nice-to-have, not required"
+    }
+  ],
+  "environment": {
+    "opengapVersion": "0.5.0",
+    "opengapPath": "/home/linuxbrew/.linuxbrew/bin/opengap",
+    "repo": "/home/b08x/WorkspaceV3/Syncopated/ruth-agent-workflow",
+    "context7LibraryId": "/open-gitagent/opengap"
+  }
+}

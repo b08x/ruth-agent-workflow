@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: sfl-docs-interpersonal-judge
+version: "0.1.0"
+description: "Interpersonal metafunction judge for the SFL docs debate: audits modality calibration against evidence quality, tenor and audience fit, and honest negative capability (what the system does not do)."

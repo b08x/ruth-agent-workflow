@@ -1,0 +1,142 @@
+name: sfl-docs-debate
+description: "SFL documentation debate procedure for whole-document creation and major structural rewrites: scouts gather facts, drafter drafts, three metafunction judges score and debate, Plannotator review gate approves, editor revises, and SFL validation gate verifies before delivery."
+version: "0.1.0"
+inputs:
+  - name: target_path
+    type: string
+    description: "Path of document to create or edit"
+    required: true
+  - name: genre_template
+    type: string
+    description: "Genre template name from sfl-technical-writing/templates"
+    required: true
+  - name: register_field
+    type: string
+    description: "Field specification (subject matter, concrete participants, material/relational processes)"
+    required: false
+  - name: register_tenor
+    type: string
+    description: "Tenor specification (K1-by-evidence, peer authority, concession-and-reversal)"
+    required: false
+  - name: register_mode
+    type: string
+    description: "Mode specification (Register Dial, HyperTheme staging, quantitative cohesive ties)"
+    required: false
+outputs:
+  - name: final_document
+    type: string
+    description: "Finalized document path"
+steps:
+  - id: scout
+    action: "Gather facts, code references, git history, and AST relationships from repository"
+    agent: codebase-scout
+    inputs:
+      budget_calls: 4
+      budget_files: 2
+      protocol: "Halt inline reading upon budget exhaustion; spawn gatherer or declare deviation."
+    outputs:
+      - evidence
+  - id: qmd-scout
+    action: "Search indexed markdown knowledge bases, prior specs, and corpus rationale with QMD"
+    agent: qmd-scout
+    inputs:
+      skill: "qmd"
+      query_strategy: "lex for exact terms, vec for semantic questions"
+    outputs:
+      - corpus_evidence
+  - id: draft
+    action: "Draft document from SFL genre template at Target Intensity 9/10"
+    agent: sfl-docs-drafter
+    depends_on:
+      - scout
+      - qmd-scout
+    inputs:
+      template: "${{ inputs.genre_template }}"
+      evidence: "${{ steps.scout.outputs.evidence }}"
+      corpus: "${{ steps.qmd-scout.outputs.corpus_evidence }}"
+      prompt: "Construct draft using congruent Field, K1-by-evidence Tenor, and New->Given quantitative cohesive Mode."
+    outputs:
+      - draft_text
+  - id: judge-ideational
+    action: "Move 1 & 2: Audit ideational metafunction (process-type coverage, participants, circumstances)"
+    agent: sfl-docs-ideational-judge
+    depends_on:
+      - draft
+    inputs:
+      draft: "${{ steps.draft.outputs.draft_text }}"
+      lens: "Field & Experiential Grammar: nominalizations, vague participants, material boundaries"
+    outputs:
+      - ideational_verdict
+  - id: judge-interpersonal
+    action: "Move 1 & 2: Audit interpersonal metafunction (K1 epistemic modality, escape hatches, negative capability)"
+    agent: sfl-docs-interpersonal-judge
+    depends_on:
+      - draft
+    inputs:
+      draft: "${{ steps.draft.outputs.draft_text }}"
+      lens: "Tenor & Epistemic Calibration: over/under modality, escape hatches, euphemisms"
+    outputs:
+      - interpersonal_verdict
+  - id: judge-textual
+    action: "Move 1 & 2: Audit textual metafunction (Theme-Rheme chains, quantitative cohesive ties, genre staging)"
+    agent: sfl-docs-textual-judge
+    depends_on:
+      - draft
+    inputs:
+      draft: "${{ steps.draft.outputs.draft_text }}"
+      lens: "Mode & Discourse Semantics: orphaned themes, quantitative ties, logical connectives"
+    outputs:
+      - textual_verdict
+  - id: consensus-synthesis
+    action: "Move 3: Synthesize deduplicated consensus fix list (claim -> problem class -> evidence needed -> rewrite)"
+    depends_on:
+      - judge-ideational
+      - judge-interpersonal
+      - judge-textual
+    inputs:
+      resolution_rule: "Resolve inter-judge deadlocks strictly using cited code/spec evidence."
+    outputs:
+      - consensus_fix_list
+  - id: gate
+    action: "Mandatory human-in-the-loop review gate via Plannotator before editing target file"
+    tool: plannotator
+    depends_on:
+      - consensus-synthesis
+    inputs:
+      file: "${{ steps.draft.outputs.draft_text }}"
+      require_approval: true
+    compliance:
+      requires_approval: true
+      audit_level: full
+    outputs:
+      - review_decision
+  - id: edit
+    action: "Apply minimal diffs for approved consensus fixes using SFL editing operations"
+    agent: sfl-docs-editor
+    depends_on:
+      - gate
+    conditions:
+      - "${{ steps.gate.outputs.review_decision == 'approved' }}"
+    inputs:
+      consensus_list: "${{ steps.consensus-synthesis.outputs.consensus_fix_list }}"
+      target_file: "${{ inputs.target_path }}"
+    outputs:
+      - edited_document
+  - id: validate
+    action: "Run sfl-technical-writing Step 5 five-point linguistic validation gate"
+    skill: sfl-technical-writing
+    depends_on:
+      - edit
+    inputs:
+      checks:
+        - "Process type coverage (material/mental/relational completeness)"
+        - "Modality audit (Target Intensity 9/10)"
+        - "Theme progression (concrete to conditional, New->Given)"
+        - "Cohesion (referents for all connectives)"
+        - "Negative capability (operational bounds)"
+      on_failure: "Loop back to sfl-docs-editor with specific findings."
+    outputs:
+      - validation_report
+error_handling:
+  on_step_failure: escalate
+  escalation_target: supervisor

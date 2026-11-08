@@ -1,0 +1,110 @@
+{
+  "goalSlug": "ruth-opengap-port",
+  "facts": [
+    {
+      "id": "fact-validate-clean",
+      "text": "After the port, `opengap validate -d .` run at the repo root exits zero with no errors.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-manifest",
+      "text": "The root agent.yaml identifies the agent as ruth, keeps model preferred glm5-3 with mistral-medium-latest fallback and temperature 0.1, and sets runtime max_turns 100 and timeout 600.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-skills-list",
+      "text": "agent.yaml enables exactly the six skills doc-style, update-docs, ruth-voice, qmd, sfl-technical-writing, sift-graph; the placeholder skills/example-skill is removed and the six skills exist as directories under skills/ with OpenGAP-conformant SKILL.md frontmatter, carrying over their references/, scripts/, templates/, and examples/ support files.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-subagents-exist",
+      "text": "Eight sub-agent directories exist under agents/ — codebase-scout, qmd-scout, sfl-docs-drafter, sfl-docs-editor, sfl-docs-ideational-judge, sfl-docs-interpersonal-judge, sfl-docs-textual-judge, sfl-docs-workflow — each with its own agent.yaml and a SOUL.md derived from the corresponding Vibe prompt.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-subagent-token-enforcement",
+      "text": "Sub-agent capability restrictions carry over: the codebase-scout enables only read-only inspection (read, grep, and a read-only shell allowlist of git log/diff/show/blame/status/rev-parse/ls-files/grep/shortlog/describe/branch/tag/remote plus ls/fd/wc/head/tail/cat/stat/file), the qmd-scout enables only the qmd CLI in the shell, the three judges are read-only, the drafter can create but not edit files, and the editor holds write and edit.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-delegation",
+      "text": "The root agent.yaml declares delegation.mode explicit and lists all eight sub-agents in its agents block with descriptions matching their Vibe display_name/description.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-soul-persona",
+      "text": "The root SOUL.md presents the R.U.T.H persona (Records Uncertainty, Traces History) carried over from prompts/ruth.md: documentation-crafting identity, terminology accountability, bounded uncertainty labels, confessed euphemisms.",
+      "comment": null,
+      "recommendedAutomatedVerification": false,
+      "automatedVerification": false
+    },
+    {
+      "id": "fact-rules",
+      "text": "RULES.md encodes ruth's hard constraints: no draft or edit batch is finalized or applied without a human-approved Plannotator review gate, writes and edits require human approval, and edits are proposed as suggestions before application.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-debate-workflow",
+      "text": "workflows/ contains the SFL documentation debate procedure: scouts gather facts, the drafter drafts, the three metafunction judges (ideational, interpersonal, textual) score, the editor revises, and every draft passes a Plannotator gate before finalization.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-duties",
+      "text": "DUTIES.md defines a segregation-of-duties matrix: drafter=maker, judges=checkers, editor=executor, ruth=orchestrator; document finalization requires a maker+checker handoff with approval.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-hooks",
+      "text": "hooks/hooks.yaml defines pre_tool_use hooks with fail_open: false backed by scripts in hooks/scripts/ that enforce the shell allowlists for ruth (plannotator annotate only), the codebase-scout (read-only git and file inspection), and the qmd-scout (qmd only).",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-compliance",
+      "text": "The agent.yaml compliance block reflects ruth's actual posture instead of the generic scaffold: human_in_the_loop conditional, escalation triggers confidence_below 0.7 and error_detected, override_capability and kill_switch enabled, audit logging in structured JSON.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-plannotator-tool",
+      "text": "tools/plannotator.yaml declares the Plannotator review gate as a first-class tool with an approval-required, state-changing side-effect class and documented graceful degradation when the CLI is absent.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-mcp",
+      "text": "agent.yaml declares codebase-memory-mcp in mcp_servers as a stdio server whose command path is interpolated from an environment variable for portability, and qmd + plannotator are documented as shell-CLI dependencies.",
+      "comment": null,
+      "recommendedAutomatedVerification": true,
+      "automatedVerification": true
+    },
+    {
+      "id": "fact-known-gaps",
+      "text": "Known gaps are recorded in one short note (not a full parity map): the three empty skills (documentation, readme-generator, code-insights-reports) were dropped, ruth's web-search capability has no OpenGAP equivalent, and update-docs exceeds the ~20,000-char SKILL.md guidance.",
+      "comment": null,
+      "recommendedAutomatedVerification": false,
+      "automatedVerification": false
+    }
+  ]
+}

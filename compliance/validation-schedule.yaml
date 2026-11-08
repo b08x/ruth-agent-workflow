@@ -1,1 +1,5 @@
-schedule: []
+schedule:
+  - component: "sfl-validation-gate"
+    cadence: "per_execution"
+    type: "linguistic_compliance"
+    description: "Five-point SFL validation gate executed before every document release"

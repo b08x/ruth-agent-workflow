@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: codebase-scout
+version: "0.1.0"
+description: "Reads source code, configs, and notes to extract the facts a document must cover; returns findings with file paths and line references."

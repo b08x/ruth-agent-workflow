@@ -1,0 +1,28 @@
+name: plannotator
+description: "Human-in-the-loop review gate using Plannotator CLI: requires human approval for documentation drafts and batched proposals before finalization."
+version: "0.1.0"
+input_schema:
+  type: object
+  properties:
+    file:
+      type: string
+      description: "Path to scratch gate file under review"
+    result_file:
+      type: string
+      description: "Path to atomically write the decision JSON"
+    require_approval:
+      type: boolean
+      description: "Require human approval before proceeding (exits non-zero if denied)"
+  required:
+    - file
+output_schema:
+  type: object
+  description: "Decision outcome emitted by Plannotator"
+implementation:
+  type: script
+  path: plannotator-gate.sh
+  runtime: bash
+annotations:
+  requires_confirmation: true
+  read_only: false
+  cost: medium

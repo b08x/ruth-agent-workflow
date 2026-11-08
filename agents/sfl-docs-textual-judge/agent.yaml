@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: sfl-docs-textual-judge
+version: "0.1.0"
+description: "Textual metafunction judge for the SFL docs debate: audits theme-rheme progression (concrete to conditional), cohesion of causal/temporal connectives, and genre staging per the SFL templates."

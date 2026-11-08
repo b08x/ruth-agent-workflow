@@ -1,0 +1,7 @@
+spec_version: "0.1.0"
+name: sfl-docs-workflow
+version: "0.1.0"
+description: "Multi-agent workflow that creates and edits technical documentation through SFL metafunction debate. The coordinator sets the register, the Drafter (with ruth-qmd-scout for Notebook corpus queries) drafts from SFL genre templates, the Ideational, Interpersonal, and Textual metafunction judges independently audit and debate the draft, and the Editor applies consensus fixes via SFL editing operations (unpacking nominalizations, modality calibration, theme-rheme repair)."
+skills:
+  - sfl-technical-writing
+  - qmd

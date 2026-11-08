@@ -1,0 +1,4 @@
+spec_version: "0.1.0"
+name: sfl-docs-editor
+version: "0.1.0"
+description: "Applies the debate's consensus fixes to documentation using SFL editing operations: unpacking nominalizations, modality repair, theme-rheme repair, and cohesion repair, keeping the diff minimal and reviewable."
